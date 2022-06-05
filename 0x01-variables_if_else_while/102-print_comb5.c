@@ -1,42 +1,50 @@
 #include <stdio.h>
-
+/* more headers goes there */
+/* betty style doc for function main goes there */
 /**
- * main - a simple program that outputs unordered
- * combinations of two digit integers without duplicates
+ * main - Entry point
  *
- * Return: 0 on success
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int ifirst;
-	int i;
-	int jfirst;
-	int j;
+	int p = 48, q = 48, y = 48, x = 49;
 
-	for (ifirst = 48; ifirst < 58; ifirst++)
+	while (p < 58)
 	{
-		for (i = 48; i < 58; i++)
+		while (q < 58)
 		{
-			j = i + 1;
-			jfirst = ifirst;
-			for (; jfirst < 58; jfirst++)
+			while (y < 58)
 			{
-				for (; j < 58; j++)
+				while (x < 58)
 				{
-					putchar(ifirst);
-					putchar(i);
+					putchar(p);
+					putchar(q);
 					putchar(' ');
-					putchar(jfirst);
-					putchar(j);
-					if (ifirst != 57 || jfirst != 57 || i != 56 || j != 57)
+					putchar(y);
+					putchar(x);
+					if (!(p == 57 &&
+						q == 56 &&
+						y == 57 &&
+						x == 57))
 					{
 						putchar(',');
 						putchar(' ');
 					}
+					x++;
 				}
-				j = 48;
+				y++;
+				x = 48;
 			}
+			q++;
+			q = p;
+			x = q + 1;
 		}
+		p++;
+		q = 48;
+		y = p;
+		x = q+ 1;
 	}
 	putchar('\n');
 	return (0);
+}
